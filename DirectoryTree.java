@@ -74,6 +74,7 @@ public class DirectoryTree {
 			}
 			else{
 				cursor = cursor.getRight();
+
 			}
 		}
 	}
@@ -234,14 +235,31 @@ public class DirectoryTree {
 	
 	public void remove(String name) throws IllegalArgumentException, NotADirectoryException{
 		
-		if (cursor.getLeft().getName().equals(name)){			
-			cursor.getLeft().setEqual(cursor.getMiddle());
-			cursor.getMiddle().setEqual(cursor.getRight());
-			cursor.setRight(null);
+		if (cursor.getLeft().getName().equals(name)){	
+			if (cursor.getMiddle() == null){
+				cursor.setLeft(null);
+			}		
+			else{
+				cursor.getLeft().setEqual(cursor.getMiddle());
+				if (cursor.getRight() == null){
+					cursor.setMiddle(null);
+				}
+				else{
+					cursor.getMiddle().setEqual(cursor.getRight());
+					cursor.setRight(null);
+				}
+				
+			}
+			
 		}
 		else if (cursor.getMiddle().getName().equals(name)){
-			cursor.getMiddle().setEqual(cursor.getRight());
+			if (cursor.getRight() == null){
+				cursor.setMiddle(null);
+			}
+			else{
+				cursor.getMiddle().setEqual(cursor.getRight());
 			cursor.setRight(null);
+			}			
 		}
 		else if (cursor.getRight().getName().equals(name)){
 			cursor.setRight(null);
