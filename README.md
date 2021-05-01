@@ -11,7 +11,7 @@ pwd : Print working directory name.
 
 ls : Print working directory subtree.
 
-ls -r : Print directory tree up to current directory in hierarchy format. Directories will be denoted with '|-' and files are denoted with '-'
+ls -r : Print directory tree up to current directory in hierarchy format. Directories are denoted with '|-' and files are denoted with '-'
 
 ls -s : Print files in current directory by order of file size (decreasing)
 
