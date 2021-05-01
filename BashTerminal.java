@@ -20,7 +20,7 @@ public class BashTerminal {
 			else if(com.equalsIgnoreCase("ls -r")){
 				tree.printDirectoryTree(tree.getCursor(), 0);
 			}
-			//sort current directory by size
+			//sort current directory by file size and print files in directory
 			else if(com.equalsIgnoreCase("ls -s")){
 				System.out.println(tree.listDirectorySize());
 			}
@@ -63,10 +63,21 @@ public class BashTerminal {
 				tree.remove(com2);
 			}
 			else if(com1.equalsIgnoreCase("mv")){
+				String [] arr = com2.split("/");
+				
 				DirectoryNode temp = tree.getCursor();
 				tree.resetCursor();
-				tree.changeDirectory(com2);
-				tree.moveFilesSync(temp, tree.getCursor());
+				int i = 0;
+				int j = arr.length;
+				while(i < j){
+					tree.changeDirectory(arr[i]);
+					if (tree.getCursor().getName().equalsIgnoreCase(arr[j-1])){
+						break;
+					}
+					i++;
+				}
+				
+				tree.moveFilesSync(temp, tree.getCursor());	
 
 			}
 		}
