@@ -2,7 +2,7 @@
 This program is a BASH-like operating system written in Java. 
 
 ## How to use BASH-OS
-To run the progra, open a Java IDE such as eclipse (https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers) or the IDE of your choice. 
+To run the program, open a Java IDE such as eclipse (https://www.eclipse.org/downloads/packages/release/kepler/sr1/eclipse-ide-java-developers) or the IDE of your choice. 
 
 Compile and run all five files (BashTerminal.java, DirectoryNode.java, DirectoryTree.java, FullDirectoryException.java, NotADirectoryException) together. This will prompt the user for inputs.
 The inputs possible in this OS are as follows:
